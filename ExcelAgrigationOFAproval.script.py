@@ -49,11 +49,11 @@ def extract_data_from_excel_file(file):
     #Add data to file Excel
 
 # Сбор названий файлов
-def scanningFileNames(dirPath):
+def scanning_file_names(dirPath):
     list_f =os.listdir(dirPath)
     for file in list_f:
         if file.endswith('.xlsx'):
             extract_data_from_excel_file(file)
             print("File name done: ", "\n",file)
 init_new_file()
-scanningFileNames(ROOT_DIR)
+scanning_file_names(ROOT_DIR)
