@@ -11,7 +11,7 @@ UID = str(currentDT.microsecond)
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))  + "\excelFiles"
 # Создание ексель файла
-def initNewFile():
+def init_new_file():
     wb = Workbook()
     sheet = wb.worksheets[0]
     # Хедер таблицы
@@ -55,5 +55,5 @@ def scanningFileNames(dirPath):
         if file.endswith('.xlsx'):
             extractDataFromExcelFile(file)
             print("File name done: ", "\n",file)
-initNewFile()
+init_new_file()
 scanningFileNames(ROOT_DIR)
