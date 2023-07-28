@@ -19,7 +19,7 @@ def init_new_file():
     sheet.append(new_row)
     wb.save("Result" + UID + ".xlsx")
 #Запись данных в ексель файл
-def addDataToExcelFile(filename,wb1value1,wb1value2,wb2value1,wb2value2,wb2value3,wb2value4,wb2value5,wb2value6,wb2value7):
+def add_data_to_excel_file(filename,wb1value1,wb1value2,wb2value1,wb2value2,wb2value3,wb2value4,wb2value5,wb2value6,wb2value7):
     excel_filename = openpyxl.load_workbook(os.path.dirname(os.path.abspath(__file__)) + "\\Result" + UID + ".xlsx")
     wb = excel_filename
     sheet = wb.worksheets[0]
@@ -28,7 +28,7 @@ def addDataToExcelFile(filename,wb1value1,wb1value2,wb2value1,wb2value2,wb2value
     wb.save("Result" + UID + ".xlsx")
 
 #получение данных
-def extractDataFromExcelFile(file):
+def extract_data_from_excel_file(file):
     excel_readFile = openpyxl.load_workbook(os.path.dirname(os.path.abspath(__file__)) + "\excelFiles\\" + file)
     wb2 = excel_readFile
     print(wb2.sheetnames)
@@ -43,7 +43,7 @@ def extractDataFromExcelFile(file):
     aprovel05 = sheet3["C6"].value
     aprovel06 = sheet3["C7"].value
     aprovel07 = sheet3["D10"].value
-    addDataToExcelFile(file,prdCode,initiatedBy,aprovel01,aprovel02,aprovel03,aprovel04,aprovel05,aprovel06,aprovel07)
+    add_data_to_excel_file(file,prdCode,initiatedBy,aprovel01,aprovel02,aprovel03,aprovel04,aprovel05,aprovel06,aprovel07)
    
     print("Step of extracting and saving data is finished for one file")
     #Add data to file Excel
@@ -53,7 +53,7 @@ def scanningFileNames(dirPath):
     list_f =os.listdir(dirPath)
     for file in list_f:
         if file.endswith('.xlsx'):
-            extractDataFromExcelFile(file)
+            extract_data_from_excel_file(file)
             print("File name done: ", "\n",file)
 init_new_file()
 scanningFileNames(ROOT_DIR)
